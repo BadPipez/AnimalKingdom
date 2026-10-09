@@ -38,11 +38,14 @@ def grid(Size):
         occupant = i.occupant_check  
         if occupant is not None and count!= 10:
             Display.append(f"|{occupant}| ")
+
+            count+=1
+        elif count == 10:
+            Display.append("\n |   |" )
+            count = 1
         else:
             Display.append("\n|    |")
-        count+=1
-        if count == 10:
-            Display.append( )
+        
         
 
 
@@ -85,13 +88,19 @@ def Simulation(Size):
 ##Cell should display the format but also look inside to see if there is an animal, in which case it should also display the animal's species
 #Only issue is idk how to do that yet. I think I need to create a method in the cell class that checks if there is an animal in the cell, and if so, it should display the animal's species.
 class Animal:
-    def __init__(self,name, species, age,status, LifeSpan, speed):
+    def __init__(self,name, species, age,status, LifeSpan, speed, x, y):
         self.name = name
         self.species = species
         self.age = age
         self.status = status
         self.LifeSpan = LifeSpan
         self.speed = speed
+        self.x = x
+        self.y = y
+
+    def get_coords(self):
+        return self.x and self.y
+
 
     def get_age(self):
         return self.age
@@ -115,6 +124,16 @@ class Predator(Animal):
         self.weapon1 = weapon1
         self.weapon2 = weapon2
         self.endurance = endurance
+
+    def increase_strength(self):
+        try:
+            if self.strength != 0:
+                strength+= 1
+
+        except ValueError:
+            print("Try again")
+            
+
 
 class herbivore(Animal):
     def __init__(self, camouflage):
@@ -147,6 +166,11 @@ class cell:
 
     def occupant_check(self):
         return self.occupant
+
+    def return_coords(self):
+        return self.x and self.y
+        
+
 
 
 
