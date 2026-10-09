@@ -1,6 +1,6 @@
 ##The point of this application is to simulate nature and how animals interact with each other.
 # There will be evolutionary changes that will occur over time, and the user will be able to observe these changes.
-
+import random
 
 print("Welcome to the Animal kingdom!")
 print("How are you?")
@@ -16,20 +16,39 @@ Grid = []
 def main():
     while True:
         try:
-            Size = int(input("Please enter the size of the grid: 10x10, 25x25, 100x100 "))
+            Size = int(input("Please enter the size of the grid: 10x10\n25x25\n50x50 "))
+            break  ##Here I realized that without this break, the loop would continue forever regardless of user input, so i add a break statement 
+        #to exit the loop once a valid input is received.
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
+    Simulation(Size)
             
             
 
-def Simulation():
-    print("Choose an option to simulate:")
-    print("1. Skip a month")
-    print("2. Skip a year")
-    print("3. Skip a decade")
+def Simulation(Size):
+    Flag = False
+    while Flag == False:
+        Choice = int(input("Choose an option to simulate:\n1. Skip a month\n2. Skip a year\n3. Skip a decade"))
+        if Choice in [1, 2, 3]:
+            Flag = True
+        else:
+            print("Invalid choice. Please enter 1, 2, or 3.")
 
+    match Size:
+        case 1:
+            for i in range(10):
+                print("|   |   |   |   |   |   |   |   |   |   |")
+        case 2:
+            for i in range(25):
+                print("|   |   |   |   |   |   |   |   |   |   |  |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |")
+        case 3:
+            for i in range(50):
+                print("|   |   |   |   |   |   |   |   |   |   |  |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |  |   |   |   |   |   |   |   |   |   |   |  |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |")       
 
-
+##All this should be in the grid. I should have a method called grid which holds cells which are created based on the size of the grid.
+## Each cell should be constructed from the cell class and then appended to the grid list. 
+##Cell should display the format but also look inside to see if there is an animal, in which case it should also display the animal's species
+#Only issue is idk how to do that yet. I think I need to create a method in the cell class that checks if there is an animal in the cell, and if so, it should display the animal's species.
 class Animal:
     def __init__(self,name, species, age,status, LifeSpan, speed):
         self.name = name
@@ -48,6 +67,9 @@ class Animal:
     def get_LifeSpan(self):
         return self.LifeSpan
 
+    def Intimidate(self):
+        print("intimidating tactic") ## I plan to use polymorphism for different intimidation tactics for different species.
+
     def get_speed(self):
         return self.speed
 
@@ -62,3 +84,34 @@ class Predator(Animal):
 class herbivore(Animal):
     def __init__(self, camouflage):
         self.camouflage = camouflage
+
+class Lion(Predator):
+    def __init__(self, Hunger, strength, weapon1, weapon2, endurance, pride_size):
+        super().__init__(Hunger, strength, weapon1, weapon2, endurance)
+        self.pride_size = pride_size
+
+
+    def Intimidate(self):
+        print("The lion roars loudly to intimidate its prey.")
+
+
+class Deer(herbivore):
+    def __init__(self, camouflage, herd_size):
+        super().__init__(camouflage)
+        self.herd_size = herd_size
+
+    def headlights(self):
+        print("The deer awkwardly freezes in place")
+
+
+class cell:
+    def __init__(self, occupant, x, y):
+        self.occupant = occupant
+        self.x = x
+        self.y = y
+
+
+
+
+
+main()
