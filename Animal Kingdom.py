@@ -13,6 +13,41 @@ Predators = []
 Herbivores = []
 Grid = []
 
+
+def grid(Size):
+    if not Grid:
+        match Size:
+            case 1:
+                for i in range(10):
+                    for j in range(10):
+                        cell_instance = cell(None, i, j)
+                        Grid.append(cell_instance)
+            case 2:
+                for i in range(25):
+                    for j in range(25):
+                        cell_instance = cell(None, i, j)
+                        Grid.append(cell_instance)
+            case 3:
+                for i in range(50):
+                    for j in range(50):
+                        cell_instance = cell(None, i, j)
+                        Grid.append(cell_instance)
+    Display = ""     
+    count = 0               
+    for i in Grid:
+        occupant = i.occupant_check  
+        if occupant is not None and count!= 10:
+            Display.append(f"|{occupant}| ")
+        else:
+            Display.append("\n|    |")
+        count+=1
+        if count == 10:
+            Display.append( )
+        
+
+
+
+
 def main():
     while True:
         try:
@@ -110,6 +145,8 @@ class cell:
         self.x = x
         self.y = y
 
+    def occupant_check(self):
+        return self.occupant
 
 
 
