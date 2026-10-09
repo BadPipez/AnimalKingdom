@@ -40,11 +40,16 @@ def grid(Size):
             Display.append(f"|{occupant}| ")
 
             count+=1
-        elif count == 10:
-            Display.append("\n |   |" )
+        elif count == 10 and occupant is not None:
+            Display.append(f"\n |{occupant}|" )
             count = 1
-        else:
+        elif count == 10 and occupant is None:
             Display.append("\n|    |")
+
+        elif count != 10 and occupant is None:
+            Display.append("|    |")
+        
+
         
         
 
