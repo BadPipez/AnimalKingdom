@@ -15,9 +15,10 @@ Grid = []
 
 
 def grid(Size):
+    print("grid started")
     if not Grid:
         match Size:
-            case 1:
+            case 1: ##This section creates the grid and only occurs once - at the beginning of the program
                 for i in range(10):
                     for j in range(10):
                         cell_instance = cell(None, i, j)
@@ -32,10 +33,10 @@ def grid(Size):
                     for j in range(50):
                         cell_instance = cell(None, i, j)
                         Grid.append(cell_instance)
-    Display = ""     
+    Display = []    ##This section is what is called whenever the user wants to display the grid.
     count = 0               
     for i in Grid:
-        occupant = i.occupant_check  
+        occupant = i.occupant_check()  
         if occupant is not None and count!= 10:
             Display.append(f"|{occupant}| ")
 
@@ -48,7 +49,7 @@ def grid(Size):
 
         elif count != 10 and occupant is None:
             Display.append("|    |")
-        
+    print(Display)
 
         
         
