@@ -70,6 +70,28 @@ def main():
             
 
 def Simulation(Size):
+    Answer = input("Would you like to add predators or herbivores to the simulation?")
+    if Answer == "predator":
+        print("Adding 5 predators to random locations.")
+        match Size:
+            case 1:
+                for i in range(5):  ##The absolute peak is 100 for any stat
+                    speed = random.randint(50,70)
+                    strength = random.randint(75,100)
+                    endurance = random.randint(30,60)
+                    Animal1 = Predator(Hunger=2,
+                                       strength = strength,
+                                       weapon1 = "fangs",
+                                       weapon2 = "teeth",
+                                       endurance = 30,
+                                       name = "Mark",
+                                       species = "Lion",
+                                       age = 12,
+                                       Status = "Healthy",
+                                       LifeSpan= 18,
+                                       speed=speed
+                                       )
+
     Flag = False
     while Flag == False:
         Choice = int(input("Choose an option to simulate:\n1. Skip a month\n2. Skip a year\n3. Skip a decade"))
@@ -124,7 +146,8 @@ class Animal:
         return self.speed
 
 class Predator(Animal):
-    def __init__(self, Hunger, strength, weapon1, weapon2, endurance): ##Here weapon 1 and 2 refer to fangs and claws
+    def __init__(self, Hunger, strength, weapon1, weapon2, endurance,name, species, age,status, LifeSpan, speed, x, y):
+        super().__init__(name, species, age,status, LifeSpan, speed, x, y) ##Here weapon 1 and 2 refer to fangs and claws
         self.hunger = Hunger
         self.strength = strength
         self.weapon1 = weapon1
@@ -163,6 +186,17 @@ class Deer(herbivore):
     def headlights(self):
         print("The deer awkwardly freezes in place")
 
+class Wolf(Predator):
+    def __init__(self, Hunger, strength, weapon1, weapon2, endurance, name, species, age, status, LifeSpan, speed, x, y, PackSize):
+        super().__init__(Hunger, strength, weapon1, weapon2, endurance, name, species, age, status, LifeSpan, speed, x, y)
+        self.PackSize = PackSize
+
+    def Gather_hunt(self):
+        return self.x and self.y
+
+class Crocodile(Predator):
+    def __init__(self, Hunger, strength, weapon1, weapon2, endurance, name, species, age, status, LifeSpan, speed, x, y,):
+        super().__init__(Hunger, strength, weapon1, weapon2, endurance, name, species, age, status, LifeSpan, speed, x, y)
 
 class cell:
     def __init__(self, occupant, x, y):
@@ -175,7 +209,7 @@ class cell:
 
     def return_coords(self):
         return self.x and self.y
-        
+    
 
 
 
