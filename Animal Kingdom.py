@@ -165,7 +165,8 @@ class Predator(Animal):
 
 
 class herbivore(Animal):
-    def __init__(self, camouflage):
+    def __init__(self, camouflage, name, species, age,status, LifeSpan, speed, x, y):
+        super().__init__(name, species, age,status, LifeSpan, speed, x, y)
         self.camouflage = camouflage
 
 class Lion(Predator):
@@ -179,8 +180,8 @@ class Lion(Predator):
 
 
 class Deer(herbivore):
-    def __init__(self, camouflage, herd_size):
-        super().__init__(camouflage)
+    def __init__(self, camouflage, herd_size,name, species, age,status, LifeSpan, speed, x, y):
+        super().__init__(camouflage, name, species, age,status, LifeSpan, speed, x, y)
         self.herd_size = herd_size
 
     def headlights(self):
@@ -197,6 +198,18 @@ class Wolf(Predator):
 class Crocodile(Predator):
     def __init__(self, Hunger, strength, weapon1, weapon2, endurance, name, species, age, status, LifeSpan, speed, x, y,):
         super().__init__(Hunger, strength, weapon1, weapon2, endurance, name, species, age, status, LifeSpan, speed, x, y)
+
+    def submerge(self):
+        self.status = "submerged"
+
+class Oxtail(Herbivores):
+    def __init__(self, name, species, age,status, LifeSpan, speed, x, y):
+        super().__init__(name, species, age,status, LifeSpan, speed, x, y)
+
+class Rabbit(Herbivores):
+    def __init__(self, name, species, age,status, LifeSpan, speed, x, y):
+        super().__init__(name, species, age,status, LifeSpan, speed, x, y)
+
 
 class cell:
     def __init__(self, occupant, x, y):
