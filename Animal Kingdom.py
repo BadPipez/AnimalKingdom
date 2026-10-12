@@ -72,6 +72,116 @@ def Simulation(Size):
     Answer = input("Would you like to add predators or herbivores to the simulation?")
     if Answer == "predator":
         print("Adding 5 predators to random locations.")
+        match Size:
+                    case 1:
+                        for i in range(5):  ##The absolute peak is 100 for any stat
+                            RandomX = random.randint(1,10)
+                            RandomY = random.randint(1,10)
+                            Grass = next(i for i in Grid if i.return_coords == RandomX and RandomY ),
+                            Grass = cell("Grass", RandomX, RandomY)
+                            Species = random.choice(['lion'], ['Wolf'], ['Crocodile'])
+                            if Species == 'lion':
+                                speed = random.randint(50,70)
+                                strength = random.randint(75,100)
+                                endurance = random.randint(30,60)
+                                age = random.randint(1,14)
+                            elif Species == 'wolf':
+                                speed = random.randint(40,60)
+                                strength = random.randint(20,35)
+                                endurance = random.randint(20,40)
+                                age = random.randint(1,13)
+                            elif Species == 'crocodile':
+                                speed = random.randint(45,70)
+                                strength = random.randint(70,90)
+                                endurance = random.randint(20,60)
+                                age = random.randint(1,70)
+                            x = random.randint(1,10)
+                            y = random.randint(1,10)
+                            Animal1 = Predator(Hunger=2,
+                                               strength = strength,
+                                               weapon1 = "fangs",
+                                               weapon2 = "teeth",
+                                               endurance = endurance,
+                                               name = "Mark",
+                                               species = Species,
+                                               age = age,
+                                               Status = "Healthy",
+                                               LifeSpan= 18,
+                                               speed=speed,
+                                               x = x,
+                                               y = y
+                                               )
+                            Animals.append[Animal1]
+                    case 2:
+                        for i in range(10):  ##The absolute peak is 100 for any stat
+                            Species = random.choice(['lion'], ['Wolf'], ['Crocodile'])
+                            if Species == 'lion':
+                                speed = random.randint(50,70)
+                                strength = random.randint(75,100)
+                                endurance = random.randint(30,60)
+                                age = random.randint(1,14)
+                            elif Species == 'wolf':
+                                speed = random.randint(40,60)
+                                strength = random.randint(20,35)
+                                endurance = random.randint(20,40)
+                                age = random.randint(1,13)
+                            elif Species == 'crocodile':
+                                speed = random.randint(45,70)
+                                strength = random.randint(70,90)
+                                endurance = random.randint(20,60)
+                                age = random.randint(1,70)
+                            x = random.randint(1,25)
+                            y = random.randint(1,25)
+                            Animal1 = Predator(Hunger=2,
+                                               strength = strength,
+                                               weapon1 = "fangs",
+                                               weapon2 = "teeth",
+                                               endurance = endurance,
+                                               name = "Mark",
+                                               species = Species,
+                                               age = age,
+                                               Status = "Healthy",
+                                               LifeSpan= 18,
+                                               speed=speed,
+                                               x = x,
+                                               y = y
+                                               )
+                            Animals.append[Animal1]
+                    case 3:
+                        for i in range(25):  ##The absolute peak is 100 for any stat
+                            Species = random.choice(['lion'], ['Wolf'], ['Crocodile'])
+                            if Species == 'lion':
+                                speed = random.randint(50,70)
+                                strength = random.randint(75,100)
+                                endurance = random.randint(30,60)
+                                age = random.randint(1,14)
+                            elif Species == 'wolf':
+                                speed = random.randint(40,60)
+                                strength = random.randint(20,35)
+                                endurance = random.randint(20,40)
+                                age = random.randint(1,13)
+                            elif Species == 'crocodile':
+                                speed = random.randint(45,70)
+                                strength = random.randint(70,90)
+                                endurance = random.randint(20,60)
+                                age = random.randint(1,70)
+                            x = random.randint(1,50)
+                            y = random.randint(1,50)
+                            Animal1 = Predator(Hunger=2,
+                                               strength = strength,
+                                               weapon1 = "fangs",
+                                               weapon2 = "teeth",
+                                               endurance = endurance,
+                                               name = "Mark",
+                                               species = Species,
+                                               age = age,
+                                               Status = "Healthy",
+                                               LifeSpan= 18,
+                                               speed=speed,
+                                               x = x,
+                                               y = y
+                                               )
+                            Animals.append[Animal1]
     else:
         print("Adding 5 herbivores")
         match Size:
@@ -79,18 +189,20 @@ def Simulation(Size):
                 for i in range(5):  ##The absolute peak is 100 for any stat
                     RandomX = random.randint(1,10)
                     RandomY = random.randint(1,10)
-                    Species = random.choice(['lion'], ['Wolf'], ['Crocodile'])
-                    if Species == 'lion':
-                        speed = random.randint(50,70)
-                        strength = random.randint(75,100)
-                        endurance = random.randint(30,60)
+                    Grass = next(i for i in Grid if i.return_coords == RandomX and RandomY ),
+                    Grass = cell("Grass", RandomX, RandomY)
+                    Species = random.choice(['Deer'], ['Rabbit'], ['Oxtail'])
+                    if Species == 'Deer':
+                        speed = random.randint(55,70)
+                        strength = random.randint(15,25)
+                        endurance = random.randint(30,65)
                         age = random.randint(1,14)
-                    elif Species == 'wolf':
-                        speed = random.randint(40,60)
-                        strength = random.randint(20,35)
-                        endurance = random.randint(20,40)
+                    elif Species == 'Rabbit':
+                        speed = random.randint(30,50)
+                        strength = random.randint(1,5)
+                        endurance = random.randint(10,30)
                         age = random.randint(1,13)
-                    elif Species == 'crocodile':
+                    elif Species == 'Oxtail':
                         speed = random.randint(45,70)
                         strength = random.randint(70,90)
                         endurance = random.randint(20,60)
@@ -111,6 +223,7 @@ def Simulation(Size):
                                        x = x,
                                        y = y
                                        )
+                    Animals.append[Animal1]
             case 2:
                 for i in range(10):  ##The absolute peak is 100 for any stat
                     Species = random.choice(['lion'], ['Wolf'], ['Crocodile'])
@@ -145,6 +258,7 @@ def Simulation(Size):
                                        x = x,
                                        y = y
                                        )
+                    Animals.append[Animal1]
             case 3:
                 for i in range(25):  ##The absolute peak is 100 for any stat
                     Species = random.choice(['lion'], ['Wolf'], ['Crocodile'])
@@ -179,7 +293,8 @@ def Simulation(Size):
                                        x = x,
                                        y = y
                                        )
-
+                    Animals.append[Animal1]
+def Skip(Size): 
     Flag = False
     while Flag == False:
         Choice = int(input("Choose an option to simulate:\n1. Skip a month\n2. Skip a year\n3. Skip a decade"))
@@ -190,8 +305,15 @@ def Simulation(Size):
 
     match Size:
         case 1:
-            for i in range(10):
-                print("|   |   |   |   |   |   |   |   |   |   |")
+            for i in Animals:
+                x = random.randint(1,10)
+                y = random.randint(1,10)
+                i.change_coords(x,y)
+                Species = i.get_species()
+                SameAnimals =  (i for i in Animals if i.get_coords == x and y )
+                for i in SameAnimals:
+                    if i.get_species() == "herbivore" and "
+                for i in
         case 2:
             for i in range(25):
                 print("|   |   |   |   |   |   |   |   |   |   |  |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |")
@@ -217,6 +339,8 @@ class Animal:
     def get_coords(self):
         return self.x and self.y
 
+    def Change_coords(self, x, y):
+        self.x = x and self.y = y
 
     def get_age(self):
         return self.age
@@ -232,6 +356,9 @@ class Animal:
 
     def get_speed(self):
         return self.speed
+
+    def get_species(self):
+        return self.species
 
 class Predator(Animal):
     def __init__(self, Hunger, strength, weapon1, weapon2, endurance,name, species, age,status, LifeSpan, speed, x, y):
@@ -306,6 +433,9 @@ class cell:
         self.y = y
 
     def occupant_check(self):
+        for i in Animals:
+            if self.x and self.y == i.get_coords:
+                self.occupant = i.get_species
         return self.occupant
 
     def return_coords(self):
