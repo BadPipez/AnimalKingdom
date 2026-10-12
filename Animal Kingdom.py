@@ -3,7 +3,6 @@
 import random
 
 print("Welcome to the Animal kingdom!")
-print("How are you?")
 
 #Here I'm creating a general class for all animals, which will hold common methods and attributes, regardless of whether the animal is 
 #a predator or prey.
@@ -73,23 +72,112 @@ def Simulation(Size):
     Answer = input("Would you like to add predators or herbivores to the simulation?")
     if Answer == "predator":
         print("Adding 5 predators to random locations.")
+    else:
+        print("Adding 5 herbivores")
         match Size:
             case 1:
                 for i in range(5):  ##The absolute peak is 100 for any stat
-                    speed = random.randint(50,70)
-                    strength = random.randint(75,100)
-                    endurance = random.randint(30,60)
+                    RandomX = random.randint(1,10)
+                    RandomY = random.randint(1,10)
+                    Species = random.choice(['lion'], ['Wolf'], ['Crocodile'])
+                    if Species == 'lion':
+                        speed = random.randint(50,70)
+                        strength = random.randint(75,100)
+                        endurance = random.randint(30,60)
+                        age = random.randint(1,14)
+                    elif Species == 'wolf':
+                        speed = random.randint(40,60)
+                        strength = random.randint(20,35)
+                        endurance = random.randint(20,40)
+                        age = random.randint(1,13)
+                    elif Species == 'crocodile':
+                        speed = random.randint(45,70)
+                        strength = random.randint(70,90)
+                        endurance = random.randint(20,60)
+                        age = random.randint(1,70)
+                    x = random.randint(1,10)
+                    y = random.randint(1,10)
                     Animal1 = Predator(Hunger=2,
                                        strength = strength,
                                        weapon1 = "fangs",
                                        weapon2 = "teeth",
-                                       endurance = 30,
+                                       endurance = endurance,
                                        name = "Mark",
-                                       species = "Lion",
-                                       age = 12,
+                                       species = Species,
+                                       age = age,
                                        Status = "Healthy",
                                        LifeSpan= 18,
-                                       speed=speed
+                                       speed=speed,
+                                       x = x,
+                                       y = y
+                                       )
+            case 2:
+                for i in range(10):  ##The absolute peak is 100 for any stat
+                    Species = random.choice(['lion'], ['Wolf'], ['Crocodile'])
+                    if Species == 'lion':
+                        speed = random.randint(50,70)
+                        strength = random.randint(75,100)
+                        endurance = random.randint(30,60)
+                        age = random.randint(1,14)
+                    elif Species == 'wolf':
+                        speed = random.randint(40,60)
+                        strength = random.randint(20,35)
+                        endurance = random.randint(20,40)
+                        age = random.randint(1,13)
+                    elif Species == 'crocodile':
+                        speed = random.randint(45,70)
+                        strength = random.randint(70,90)
+                        endurance = random.randint(20,60)
+                        age = random.randint(1,70)
+                    x = random.randint(1,25)
+                    y = random.randint(1,25)
+                    Animal1 = Predator(Hunger=2,
+                                       strength = strength,
+                                       weapon1 = "fangs",
+                                       weapon2 = "teeth",
+                                       endurance = endurance,
+                                       name = "Mark",
+                                       species = Species,
+                                       age = age,
+                                       Status = "Healthy",
+                                       LifeSpan= 18,
+                                       speed=speed,
+                                       x = x,
+                                       y = y
+                                       )
+            case 3:
+                for i in range(25):  ##The absolute peak is 100 for any stat
+                    Species = random.choice(['lion'], ['Wolf'], ['Crocodile'])
+                    if Species == 'lion':
+                        speed = random.randint(50,70)
+                        strength = random.randint(75,100)
+                        endurance = random.randint(30,60)
+                        age = random.randint(1,14)
+                    elif Species == 'wolf':
+                        speed = random.randint(40,60)
+                        strength = random.randint(20,35)
+                        endurance = random.randint(20,40)
+                        age = random.randint(1,13)
+                    elif Species == 'crocodile':
+                        speed = random.randint(45,70)
+                        strength = random.randint(70,90)
+                        endurance = random.randint(20,60)
+                        age = random.randint(1,70)
+                    x = random.randint(1,50)
+                    y = random.randint(1,50)
+                    Animal1 = Predator(Hunger=2,
+                                       strength = strength,
+                                       weapon1 = "fangs",
+                                       weapon2 = "teeth",
+                                       endurance = endurance,
+                                       name = "Mark",
+                                       species = Species,
+                                       age = age,
+                                       Status = "Healthy",
+                                       LifeSpan= 18,
+                                       speed=speed,
+                                       x = x,
+                                       y = y
                                        )
 
     Flag = False
